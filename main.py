@@ -5,7 +5,7 @@
 
 #Definir la classe pfcGame
 
-    #Definir la fonction intro
+    #Definir la fonction gameIntro
         #Afficher le retour de l'execution de la fonction print avec pour parametre "Bienvenue sur le Pierre Feuille Ciseau"
         #Afficher le retour de l'execution de la fonction print avec pour parametre "Tapez 1 pour voir les règles | tapez 2 pour choisir le mode de jeu et la difficulté"
         #Assigner a x la valeur input
@@ -17,11 +17,11 @@
                     #Alors retour de l'execution de la fonction gameMode
                 #autre cas
                     #Alors 
-                    #Afficher le retour de l'execution de la fonction print avec pour parametre "Mauvais chiffre n'oubliez pas 1 ou 2, retour à l'intro"
+                    #Afficher le retour de l'execution de la fonction print avec pour parametre "Mauvais chiffre n'oubliez pas 1 ou 2, retour à l'introduction"
                     #Retour de l'execution de la fonction intro
         #Exception en cas d'erreur de l'essaie
             #Afficher le retour de l'execution de la fonction print avec pour parametre "Erreur mauvais type de valeur rentrer"
-            #Retour de l'execution de la fonction intro
+            #Retour de l'execution de la fonction gameIntro
 
     #Definir la fonction gameRule
         #Afficher le retour de l'execution de la fonction print avec pour parametre ""
