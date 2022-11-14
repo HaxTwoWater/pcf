@@ -143,7 +143,7 @@ def match(x):
     while playerLife > 1:
         #Alors
         #Afficher "Score actuel " et playerScore
-        print("Score actuel " + playerScore)
+        print("Score actuel " + str(playerScore))
         print("Quel coup voulez-vous jouer ? (1-Pierre 2-Feuille 3-Ciseau)")
         moveChoice = int(input())
         iaMove = iaDiff(diffChoice, moveChoice)
@@ -185,7 +185,7 @@ def match(x):
                 match(x)
     print("Très beau match !")
     if playerScore > highScore:
-        print("Vous avez carrément dépasser le record depuis que le jeu est lancé qui était de " + str(highScore) + " avec un score de " + playerScore + " !")
+        print("Vous avez carrément dépasser le record depuis que le jeu est lancé qui était de " + str(highScore) + " avec un score de " + str(playerScore) + " !")
         highScore = playerScore
     else:
         notEnough = highScore - playerScore
