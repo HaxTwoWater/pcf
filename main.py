@@ -8,7 +8,7 @@ import random
 
 
 #On initialise highScore de valeur 0
-highScore = 0
+# highScore = 0
 
 #Definir la fonction gameIntro
 def gameIntro():
@@ -16,7 +16,7 @@ def gameIntro():
     print("Bienvenue sur le Pierre Feuille Ciseau")
     #Afficher "Tapez 1 pour voir les règles | tapez 2 pour choisir le mode de jeu et la difficulté"
     print("Tapez 1 pour voir les règles | tapez 2 pour choisir le mode de jeu et la difficulté")
-    print("Meilleur score actuel est de : " + str(highScore) + " !")
+    # print("Meilleur score actuel est de : " + str(highScore) + " !")
     #Assigner a x la valeur input
     x = int(input())
     #Switch de x
@@ -140,7 +140,7 @@ def match(x):
     #On initialise playerScore de valeur 0
     playerScore = 0
     #Tant que playerLife > 1
-    while playerLife > 1:
+    while playerLife >= 1:
         #Alors
         #Afficher "Score actuel " et playerScore
         print("Score actuel " + str(playerScore))
@@ -151,45 +151,45 @@ def match(x):
             if moveChoice == 1:
                 print("Vous avez tout les deux joué pierre, il y a donc égalité tu ne perds pas de vie mais tu ne gagnes pas de points")
             elif moveChoice == 2:
-                print("Tu as joué pierre et l'ordinateur feuille, tu as donc perdue")
-                playerLife = playerLife - 1
-            elif moveChoice == 3:
-                print("Tu as joué pierre et l'ordinateur ciseau, tu as donc gagné")
+                print("Tu as joué feuille et l'ordinateur pierre, tu as donc gagné")
                 playerScore = playerScore + 1
+            elif moveChoice == 3:
+                playerLife = playerLife - 1
+                print("Tu as joué ciseau et l'ordinateur pierre, tu as donc perdue une vie plus que " + str(playerLife) + " !")
             else:
                 print("Mauvaise valeur retour au match")
                 match(x)
         elif iaMove == 2:
             if moveChoice == 1:
-                print("Tu as joué feuille et l'ordinateur pierre, tu as donc gagné")
-                playerScore = playerScore + 1
+                playerLife = playerLife - 1
+                print("Tu as joué pierre et l'ordinateur feuille, tu as donc perdue une vie plus que " + str(playerLife) + " !")
             elif moveChoice == 2:
                 print("Vous avez tout les deux joué feuille, il y a donc égalité tu ne perds pas de vie mais tu ne gagnes pas de points")
             elif moveChoice == 3:
-                print("Tu as joué feuille et l'ordinateur ciseau, tu as donc perdue")
-                playerLife = playerLife - 1
+                print("Tu as joué ciseau et l'ordinateur feuille, tu as donc gagné")
+                playerScore = playerScore + 1
             else:
                 print("Mauvaise valeur retour au match")
                 match(x)
         elif iaMove == 3:    
             if moveChoice == 1:
-                print("Tu as joué ciseau et l'ordinateur pierre, tu as donc perdue")
-                playerLife = playerLife - 1
-            elif moveChoice == 2:
-                print("Tu as joué ciseau et l'ordinateur feuille, tu as donc gagné")
+                print("Tu as joué pierre et l'ordinateur ciseau, tu as donc gagné")
                 playerScore = playerScore + 1
+            elif moveChoice == 2:
+                playerLife = playerLife - 1
+                print("Tu as joué feuille et l'ordinateur ciseau, tu as donc perdue une vie plus que " + str(playerLife) + " !")
             elif moveChoice == 3:
                 print("Vous avez tout les deux joué ciseau, il y a donc égalité tu ne perds pas de vie mais tu ne gagnes pas de points")
             else:
                 print("Mauvaise valeur retour au match")
                 match(x)
     print("Très beau match !")
-    if playerScore > highScore:
-        print("Vous avez carrément dépasser le record depuis que le jeu est lancé qui était de " + str(highScore) + " avec un score de " + str(playerScore) + " !")
-        highScore = playerScore
-    else:
-        notEnough = highScore - playerScore
-        print("Vous n'avez pas dépasser le record actuel qui est de " + str(highScore) + " retentez votre chance la prochaine fois il ne vous manquez que " + str(notEnough) + " !")
+    # if playerScore > highScore:
+    #     print("Vous avez carrément dépasser le record depuis que le jeu est lancé qui était de " + str(highScore) + " avec un score de " + str(playerScore) + " !")
+    #     highScore = playerScore
+    # else:
+    #     notEnough = highScore - playerScore
+    #     print("Vous n'avez pas dépasser le record actuel qui est de " + str(highScore) + " retentez votre chance la prochaine fois il ne vous manquez que " + str(notEnough) + " !")
     restart = int(input("Voulez-rejouer? si oui entrez 1 et vous serrez renvoyer au menu sinon entrer n'importe quoi d'autre et le jeu s'arrêtera"))
     if restart == 1:
         gameIntro()
@@ -220,7 +220,13 @@ def iaDiff(diffValue, playerMove):
         else:
             return 1
     elif diffValue == 2:
-        print("Soon") 
+        diffValue = random.randint(1,2)
+        if diffValue == 1:
+            diffValue = 1
+            iaDiff(diffValue,playerMove)
+        else:
+            diffValue = 3
+            iaDiff(diffValue,playerMove)
     elif diffValue == 3:
         if playerMove == 1:
             return 2
