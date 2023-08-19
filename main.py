@@ -201,7 +201,7 @@ def match(x):
 #Definir la fonction matchMulti avec comme parametre x
 def matchMulti(playerChoice):
     print("COming soon")
-    gameIntro()
+    gameMode()
     # if playerChoice == 3:
     #     print("")
     # else:
